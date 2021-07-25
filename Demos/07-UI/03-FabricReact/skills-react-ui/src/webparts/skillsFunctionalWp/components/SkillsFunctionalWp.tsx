@@ -9,6 +9,8 @@ import "@pnp/sp/lists";
 import "@pnp/sp/items";
 import { Skill } from './skill';
 import { SkillItem } from './skill-item/skill-item';
+import { SkillsList } from './skill-list/skill-list';
+import { SkillAdd } from './skill-add/skill-add';
 
 export const SkillsFunctionalWp : FC<ISkillsFunctionalWpProps> = (props: ISkillsFunctionalWpProps)=>{
   
@@ -20,20 +22,19 @@ export const SkillsFunctionalWp : FC<ISkillsFunctionalWpProps> = (props: ISkills
     });
     getSkillsFromSP()
   }, []);
-
+  
   const getSkillsFromSP = async () => {
     const items: any[] = await sp.web.lists.getByTitle("Skills").items.getAll();  
     setSkills(items);
   }
-  
+
+  const addSkill = async (skill: Skill) =>{}
+
   return (
     <div className={styles.container}>
-      {
-        skills.map((sk: Skill)=>{
-            return (<SkillItem item={sk} key={sk.ID} ></SkillItem>)
-        })
-      }
-      <div>Click to delete</div>
+      <SkillAdd addSkill={addSkill}></SkillAdd>
+      <SkillsList skills={skills} ></SkillsList>
     </div>
   )
+
 }
