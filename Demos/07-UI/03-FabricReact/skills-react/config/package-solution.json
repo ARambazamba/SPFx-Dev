@@ -1,8 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "skills-react-data-client-side-solution",
-    "id": "f845bd3f-70db-42bb-bb28-1cd585d8a602",
+    "name": "skills-functional-spfx-client-side-solution",
+    "id": "903d31ba-e457-4370-87d1-5a73114c58d5",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "isDomainIsolated": false,
@@ -15,6 +15,6 @@
     }
   },
   "paths": {
-    "zippedPackage": "solution/skills-react-data.sppkg"
+    "zippedPackage": "solution/skills-functional-spfx.sppkg"
   }
 }
