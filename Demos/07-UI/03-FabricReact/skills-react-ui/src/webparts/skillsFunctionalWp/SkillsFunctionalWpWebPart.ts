@@ -9,13 +9,13 @@ import { ISkillsFunctionalWpProps } from './components/ISkillsFunctionalWpProps'
 import { SkillsFunctionalWp } from './components/SkillsFunctionalWp';
 
 export interface ISkillsFunctionalWpWebPartProps {
-    description: string;
+    listName: string;
 }
 
 export default class SkillsFunctionalWpWebPart extends BaseClientSideWebPart<ISkillsFunctionalWpWebPartProps> {
     public render(): void {
         const element: React.ReactElement<ISkillsFunctionalWpProps> = React.createElement(SkillsFunctionalWp, {
-            description: this.properties.description,
+            listName: this.properties.listName,
             context: this.context,
         });
 

@@ -2,15 +2,13 @@ import * as React from 'react';
 import { useState, useEffect, FC } from 'react';
 import { ISkillsFunctionalWpProps } from './ISkillsFunctionalWpProps';
 import styles from './SkillsFunctionalWp.module.scss';
-import { TextField, PrimaryButton } from 'office-ui-fabric-react';
 import { sp } from "@pnp/sp";
 import "@pnp/sp/webs";
 import "@pnp/sp/lists";
 import "@pnp/sp/items";
-import { Skill } from './skill';
-import { SkillItem } from './skill-item/skill-item';
 import { SkillsList } from './skill-list/skill-list';
 import { SkillAdd } from './skill-add/skill-add';
+import { IItemAddResult } from '@pnp/sp/items';
 
 export const SkillsFunctionalWp : FC<ISkillsFunctionalWpProps> = (props: ISkillsFunctionalWpProps)=>{
   
@@ -28,7 +26,11 @@ export const SkillsFunctionalWp : FC<ISkillsFunctionalWpProps> = (props: ISkills
     setSkills(items);
   }
 
-  const addSkill = async (skill: Skill) =>{}
+  const addSkill = async (skill: string) =>{
+    const iar: IItemAddResult = await sp.web.lists.getByTitle("Skills").items.add({
+      Title: "skill"
+    });
+  }
 
   return (
     <div className={styles.container}>

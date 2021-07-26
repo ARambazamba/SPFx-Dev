@@ -1,4 +1,4 @@
 export interface ISkillsFunctionalWpProps {
-    description: string;
+    listName: string;
     context: any;
 }

@@ -2,10 +2,11 @@ import * as React from 'react';
 import { FC, useState } from 'react';
 import { DefaultButton, ButtonType } from "office-ui-fabric-react";
 import { TextField } from "office-ui-fabric-react/lib/TextField";
-import { Skill } from '../skill';
+
+import styles from "./skill-add.module.scss";
 
 export interface ISkillAddProps {
-    addSkill(skill: Skill): void
+    addSkill(skill: string): void
 }
 
 export const SkillAdd : FC<ISkillAddProps> = (props: ISkillAddProps) => {
@@ -13,11 +14,11 @@ export const SkillAdd : FC<ISkillAddProps> = (props: ISkillAddProps) => {
     const [editSkill, setEditSkill] = useState('');
 
 	const handleSkillChange = (e: React.FormEvent<HTMLInputElement>)=> {
-        setEditSkill( e.currentTarget.value );
+        setEditSkill(  e.currentTarget.value ?? '');
 	}
 
     return (
-        <div className="addRow">
+        <div className="styles.addRow">
             <TextField
               onChange={handleSkillChange}
               label="Enter a new skill:"
@@ -26,9 +27,9 @@ export const SkillAdd : FC<ISkillAddProps> = (props: ISkillAddProps) => {
 
             <DefaultButton
               buttonType={ButtonType.primary}
-              onClick={() => props.addSkill }
+              onClick={() => props.addSkill(editSkill) }
             >
-              Add
+              Add Skill
             </DefaultButton>          
         </div>
     )
